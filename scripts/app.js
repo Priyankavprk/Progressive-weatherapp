@@ -3,19 +3,9 @@ const apikey = '&APPID=f814d0e4585b1589c7589c972e5e1cb7'
 let intervalid
 let tmp
 
-var injectedForecast = {
-  name: 'Bangalore',
-  dt: 1453489481,
-  weather: [{icon: '01d', description: 'Clear sky'}],
-  main: {temp: 32, pressure: 20,humidity: 0.77},
-  sys: {country: 'IN'},
-  wind: {speed: 20},
-  id: 1277333
-}
-
 function appload () {
   'use strict'
-  var weatherAPIUrlBase = 'https://publicdata-weather.firebaseio.com/' // 'http://api.openweathermap.org/data/2.5/weather?'
+  // var weatherAPIUrlBase = 'https://publicdata-weather.firebaseio.com/' // 'http://api.openweathermap.org/data/2.5/weather?'
 
   var app = {
     isLoading: true,
@@ -87,6 +77,15 @@ function appload () {
       app.saveSelectedCities()
       app.visibleCards[data.name] = card
     }
+
+    var dateElem = card.querySelector('.date')
+    if (dateElem.getAttribute('data-dt') >= data.dt) {
+      return
+    }
+
+    dateElem.setAttribute('data-dt', data.dt)
+    dateElem.textContent = new Date(data.dt * 1000)
+
     card.querySelector('.description').textContent = data.weather[0].description // data.currently.summary
     card.querySelector('.date').textContent =
       new Date(data.dt * 1000)

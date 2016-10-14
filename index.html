@@ -6,15 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Weather App for UD811">
   
+  <script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
 
-  <title>Weather</title>
+
+
+  <title>ClimA</title>
   <!-- Insert link to stylesheet here -->
   <link rel="stylesheet"  href= "/styles/ud811.css">
+  <link rel="manifest"  href="/manifest.json">
+  <meta name="theme-color" content="#2F3BA2">
 </head>
 <body>
 
   <header class="header">
-    <h1 class="header__title">Weather PWA</h1>
+    <h1 class="header__title">ClimA</h1>
     <button id="butRefresh" class="headerButton" aria-label="Refresh"></button>
     <button id="butAdd" class="headerButton" aria-label="Add"></button>
   </header>
@@ -22,7 +27,7 @@
   <main class="main">
     <div class="card cardTemplate weather-forecast" hidden>
       <div class="location"></div>
-      <div class="date"></div>
+      <div class="date" data-dt = "149448264"></div>
       <div class="description"></div>
       <div class="current">
         <div class="visual">
