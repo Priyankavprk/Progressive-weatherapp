@@ -83,63 +83,33 @@ function appload () {
       return
     }
 
+    var img = {
+      '01d': 'oned',
+      '02d': 'twod',
+      '03d': 'threed',
+      '04d': 'fourd',
+      '09d': 'fived',
+      '10d': 'tend',
+      '11d': 'ed',
+      '13d': 'third',
+      '01n': 'onen',
+      '02n': 'twon',
+      '03n': 'threen',
+      '04n': 'fourn',
+      '10n': 'tenn',
+      '11n': 'en',
+      '13n': 'thirn',
+      '50d': 'fifd',
+      '50n': 'fifn'
+    }
+
     dateElem.setAttribute('data-dt', data.dt)
     dateElem.textContent = new Date(data.dt * 1000)
 
     card.querySelector('.description').textContent = data.weather[0].description // data.currently.summary
     card.querySelector('.date').textContent =
       new Date(data.dt * 1000)
-    console.log(data.weather[0].icon)
-    switch (data.weather[0].icon) {
-      case '01d':
-        card.querySelector('.current .icon').classList.add('oned')
-        break
-      case '02d':
-        card.querySelector('.current .icon').classList.add('twod')
-        break
-      case '03d':
-        card.querySelector('.current .icon').classList.add('threed')
-        break
-      case '04d':
-        card.querySelector('.current .icon').classList.add('fourd')
-        break
-      case '09d':
-        card.querySelector('.current .icon').classList.add('fived')
-        break
-      case '10d':
-        card.querySelector('.current .icon').classList.add('tend')
-        break
-      case '11d':
-        card.querySelector('.current .icon').classList.add('ed')
-        break
-      case '13d':
-        card.querySelector('.current .icon').classList.add('third')
-        break
-      case '01n':
-        card.querySelector('.current .icon').classList.add('onen')
-        break
-      case '02n':
-        card.querySelector('.current .icon').classList.add('twon')
-        break
-      case '03n':
-        card.querySelector('.current .icon').classList.add('threen')
-        break
-      case '04n':
-        card.querySelector('.current .icon').classList.add('fourn')
-        break
-      case '09n':
-        card.querySelector('.current .icon').classList.add('fiven')
-        break
-      case '10n':
-        card.querySelector('.current .icon').classList.add('tenn')
-        break
-      case '11n':
-        card.querySelector('.current .icon').classList.add('en')
-        break
-      case '13n':
-        card.querySelector('.current .icon').classList.add('thirn')
-        break
-    }
+    card.querySelector('.current .icon').classList.add(img[data.weather[0].icon])
     card.querySelector('.current .temperature .value').textContent =
       Math.round(data.main.temp - 273.15)
     card.querySelector('.current .pressure').textContent = data.main.pressure + 'hPa'

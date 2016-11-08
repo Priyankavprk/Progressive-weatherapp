@@ -292,7 +292,10 @@ body {
     background-image: url("/images/11n.png"); }
     .weather-forecast .icon.thirn {
     background-image: url("/images/13n.png"); }
-  
+    .weather-forecast .icon.fifd {
+    background-image: url("/images/50d.png"); }
+    .weather-forecast .icon.fifn {
+    background-image: url("/images/50n.png"); }  
 
 @media (max-width: 450px) {
   .weather-forecast .date, .weather-forecast .description {
